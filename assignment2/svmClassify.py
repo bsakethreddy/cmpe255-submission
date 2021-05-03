@@ -26,15 +26,15 @@ class Solution:
         # normalize the data
         X = self.faces.data
         y = self.faces.target
-        scaler = StandardScaler()
-        X = scaler.fit_transform(X)
+        # scaler = StandardScaler()
+        # X = scaler.fit_transform(X)
         return X, y
 
     def splitData(self, X, y):
 
         # split the data
         X_train, X_test, y_train, y_test = train_test_split(
-            X, y, test_size=0.20, random_state=42000)
+            X, y, test_size=0.20, random_state=42)
         return X_train, X_test, y_train, y_test
 
     def defineClassifer(self):
@@ -63,8 +63,8 @@ class Solution:
 
         print("precision score = ", precisionScore)
         print("recall score = ", recallScore)
-        print("f1 score = ", precisionScore)
-        print("support = ", precisionScore)
+        print("f1 score = ", f1Score)
+        print("support = ", support)
         pass
 
     def plot_images(self, X_test, y_test, y_pred):
@@ -101,6 +101,7 @@ class Solution:
             plt.yticks(())
             # fig.add_subplot(4, 6, i)
         plt.show()
+        pass
 
     def drawHeatMap(self, y_test, y_pred) -> None:
         # TODO
